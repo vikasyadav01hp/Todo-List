@@ -12,22 +12,25 @@ function List() {
   }
   
   const handleClick=()=>{
-    setValue2([...value2,{
-      id:Date.now(),
-      title:value,
-      done:false
-    }])
-    setValue('')
+    if(value===""){
+      alert("Enter value")
+    }else{
+      setValue2([...value2,{
+        id:Date.now(),
+        title:value,
+        done:false
+      }])
+      setValue('')
+    }
+    
   }
+  
   const handleUpdate=(id)=>{
-      let upd=value2.find((fl)=> fl.id=id)
-      setValue(upd.title)
-      setValue2(value2.filter((fli)=> fli.id!== id));
+      value2.find((fl)=> fl.id=id)
   }
 
   const handleDelete=(id)=>{
     setValue2(value2.filter((fli)=> fli.id!== id));
-    console.log(id)
   }
 
   return (

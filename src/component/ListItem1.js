@@ -1,11 +1,9 @@
-
-import { useState } from "react"
-import React from 'react'
+import React,{useState} from 'react';
 
 export default function ListItem(props) {
-    const [check, setCheck] = useState(false)
+    const [checkbox, setCheckbox] = useState(false)
     const handleCheckbox=(e)=>{
-            setCheck(e.target.checked?true:false);
+        setCheckbox(e.target.checked ? true:false)
     }
 
     return (
@@ -15,10 +13,10 @@ export default function ListItem(props) {
                         props.value.map((ei,i)=>
                             (
                                 <div key={ei.id}>
-                                    <input  type='checkbox' onChange={handleCheckbox}></input>
+                                    <input  type='checkbox' onClick={handleCheckbox}></input>
                                     <li>{ei.title}</li>
-                                    <span>{check ? "completed": "Not completed"}</span>
-                                    <button onClick={()=>props.update(ei.id)}>Update</button>
+                                    <span>{checkbox ? "completed": "Not completed"}</span>
+                                    <button onClick={()=>{}}>Update</button>
                                     <button onClick={()=>props.delete(ei.id)}>Delete</button><br></br>
                                 </div>
                             )
